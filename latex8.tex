@@ -90,7 +90,7 @@ We then setup networks from the raw data we collected. Using the SAO/NASA databa
 
 We then performed simple analysis on these networks. We looked at the degrees of the edges in the author networks to try to garner some simple intuition about the authors. For instance, the highest in-degree's in the network should indicate the most cited author, and the most worked-with author. We used these as initial measures of success. We performed the same analysis on the institutions network. We then did community analysis using Gephi to detect communities on all the networks. The results of the analysis is discussed in the experimental results section. \\
 
-After we had performed the rudimentary success analysis, we looked to get real-world metrics of success. For authors, we looked at their H-Index. We chose H-Index to look at, as it is currently one of the most widely used measures of success that looks both at an authors contributions and their impacts. Similarly from journals, we looked at the H-5 indexes of the journals as provided by google scholar. Lastly, for the institutions, we looked at both the ARWU world rankings, and the Times world rankings to identify the success of the institutions in teh real world. We compared these metrics to the network-statistics of the networks we had created. We tried to identify correlating trends to ascertain if networks could tell us anything about academia. \\
+After we had performed the rudimentary success analysis, we looked to get real-world metrics of success. For authors, we looked at their H-Index. We chose H-Index to look at, as it is currently one of the most widely used measures of success that looks both at an authors contributions and their impacts. Similarly from journals, we looked at the H-5 indexes of the journals as provided by google scholar. Lastly, for the institutions, we looked at both the ARWU world rankings, and the Times world rankings to identify the success of the institutions in the real world. We compared these metrics to the network-statistics of the networks we had created. We tried to identify correlating trends to ascertain if networks could tell us anything about academia. \\
 
 Lastly, we attempted to generate our own success metrics. We tried to look at the ranking of the nearby-nodes within our networks to ascertain any knowledge about the potential ranking of the focus node. Our results and full process for this analysis are discussed within. 
 %-------------------------------------------------------------------------
@@ -99,7 +99,7 @@ Lastly, we attempted to generate our own success metrics. We tried to look at th
 \SubSection{Experimental Setup and Practical Results M1}
 Through our initial research and data gathering, we have found that most papers include a large number of citations, between 10 and 20 citations a paper. We gathered our initial set of papers from the SAO/NASA Astrophysics Data System [3]. We started by looking at 100  starting papers. This generated a network that was far too large to visualize, as it ballooned to many thousands of papers after looking at the citations. Because the number of citations was so large, we had to scale down our network in order to run some simulations on it on Gephi. What we found in our citation network was rather interesting. The network properties are in [Table 1].
 
-\begin{table}[]
+\begin{table}[h]
 \centering
 \caption{My caption}
 \label{my-label}
@@ -136,7 +136,7 @@ Firstly, we looked at the author collaboration network [Figure 2].  Our first ap
    \caption{Example of caption.}
 \end{figure}
 
-\begin{table}[]
+\begin{table}[h]
 \centering
 \caption{My caption}
 \label{my-label}
@@ -161,7 +161,7 @@ Next, we looked at a journal citation network [Figure 3]. The figure is colored 
    \caption{Example of caption.}
 \end{figure}
 
-\begin{table}[]
+\begin{table}[h]
 \centering
 \caption{My caption}
 \label{my-label}
@@ -179,7 +179,7 @@ The interesting result we found was when we compared the network we generated to
 
 In milestone 3, we refined these networks somewhat. We looked at physics collaborations vs astronomy collaborations during milestone 3. What we found was somewhat interesting. We started with the same amount of papers, and roughly the same amount of author [table 4] \\
 
-\begin{table}[]
+\begin{table}[h]
 \centering
 \caption{My caption}
 \label{my-label}
@@ -213,9 +213,9 @@ As mentioned before, our most significant result when looking at H-index relativ
    \caption{Example of caption.}
 \end{figure}
 
-This graph shows H-index on the x-axis with degree on the y-axis. This is the most highly correlated graph we have found. What we can identify from this is that when an author collaborates heavily, and works with a diverse array of authors, they will be more likely to score high on the universal metric of h-index. \\
+This graph shows H-index on the x-axis with degree on the y-axis. This is the most highly correlated graph we have found. What we can identify from this is that when an author collaborates heavily, and works with a diverse array of authors, they will be more likely to score high on the universal metric of H-index. \\
 
-We believe this has some rational backings: first of all, if an author collaborates more, they may have published more papers. Publishing papers has a factor in h-index as it measures productivity of paper writers. Also, if a professor’s work is collaborated on by other professors, those professors may self-cite their work in other papers. This will lead to the second requirement of H-index, citations, to be accomplished more easily. \\
+We believe this has some rational backings: first of all, if an author collaborates more, they may have published more papers. Publishing papers has a factor in H-index as it measures productivity of paper writers. Also, if a professor’s work is collaborated on by other professors, those professors may self-cite their work in other papers. This will lead to the second requirement of H-index, citations, to be accomplished more easily. \\
 
 The last network we generated drew from a different source. We used SCOPUS [4], which is one of the largest citation databases, in order to find the top 150 collaborating institutions, from 50 starting institutions. We came to this method of data collection, because we found that institutions typically have collaborations and citations with a very large number of other institutions. To try to grab all of the collaborations would be near impossible. We figured the top 150, which typically meant more than 500 collaborations had occurred, would narrow down our data set to a manageable point, without removing too much specificity. \\
 
@@ -272,7 +272,7 @@ Our next step in that regard should be to classify the universities more tightly
 \Section{Future Work}
 M3: Now that we have collected a good amount of working data, we must begin thinking more in depth how to compare success in academia. We should also look into cross correlating both H-index, and magazine rankings with our journal and institution networks. Lastly, we will work together on branching out the author subjects from just the field of astrophysics. \\
 
-M4: Further analysis of our data from M2 left us with some interesting questions. We are now narrowing down the success metrics we might be using to view institutional and journal success. We need to apply these similar metrics to authors. We hope to be able to show by the deadline some unique metrics that will truly help us identify what success is in academia, and how to see when success will be achieved. For instance, the colocation of the universities with ‘good universities’ may be important, we also plan to do this analysis with  h-index of authors.
+M4: Further analysis of our data from M2 left us with some interesting questions. We are now narrowing down the success metrics we might be using to view institutional and journal success. We need to apply these similar metrics to authors. We hope to be able to show by the deadline some unique metrics that will truly help us identify what success is in academia, and how to see when success will be achieved. For instance, the colocation of the universities with ‘good universities’ may be important, we also plan to do this analysis with  H-index of authors.
 
 %-------------------------------------------------------------------------
 \Section{Citations}
