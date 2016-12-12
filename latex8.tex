@@ -127,13 +127,9 @@ After getting that initial research from M1, we decided to narrow down what we w
 2. A citation network between journals based on the data collected regarding author citations.\\
 3. A collaboration network between institutions that have at least 50 papers each.\\
 
-We also kept our initial paper citation network as a reference point, but we did not use it for any meaningful results during these milestones \\
+We managed to obtain more data out of the SAO/NASA Data system. Using the data that we obtained, we created both a collaboration network between authors who have at least 10 publications, and a citation network between journals based on the data that lead to the author network. To create these networks we followed the model outlined in the approach.  \\
 
-We managed to obtain more data out of the SAO/NASA Data system. Using the data that we obtained, we created both a collaboration network between authors who have at least 10 publications, and a citation network between journals based on the data that lead to the author network. A note: We had to limit the author collaboration network by not including two specific papers on the Higgs-Boson. In milestone 3 we have attempted to rectify this by weighting the edges in that network so that high author papers have less controlling influence on the network structure as a whole. \\
-
-We chose not to include those papers, as the amount of authorships in those papers was skewing the network. For reference, both papers needed appendixes to note all of their authors, of which they had more than 2000. We do believe these two papers are still relevant to our research, as they do show that significant papers in academia can sometimes be the result of concerted, many yearlong efforts. Those papers, because they are so fundamental to their field, will usually be well connected, and heavily cited within academia. Additionally, these papers are unique to our dataset, as CERN, which funded them, is a multinational project, and the papers created on the Higgs-Boson from there must cite all researchers invited to spend time at CERN.\\
-
-Firstly, we looked at the author collaboration network [Figure 2]. Our first approach was to look at the communities within this network. We found a high level of modularity, 0.831, and a high number of communities, with the normal random community finding algorithm used in Gephi.
+Firstly, we looked at the author collaboration network [Figure 2]. The table Our first approach was to look at the communities within this network. We found a high value of modularity, 0.831, and a high number of communities, with the normal random community finding algorithm used in Gephi. The baseline network statistics are included in [table 2]
 
 \begin{figure}[h]
    \includegraphics[width=8cm]{figure2.png}
@@ -146,14 +142,27 @@ The high modularity was also interesting to note. Some of the papers defined our
 
 We found Gephi’s community analysis helpful in finding these specific authors. We have looked at this as one metric of success within our network; that is to say if an author collaborates on more than one ‘big’ papers, he must be a respected author. \\
 
-Next, we looked at a journal citation network [Figure 3]. It was generated from the set of papers that made the author collaboration network. Unlike the author network, this network did not have a high level of modularity. In addition, it had a low level of communities, regardless of the resolution parameter. \\
+Next, we looked at a journal citation network [Figure 3]. The figure is colored by community of the journal. The general properties of this network can be found in table 3. It was generated from the set of papers that made the author collaboration network. Unlike the author network, this network did not have a high modulatrity value. This means the communities discovered in this network are less important. In addition, it had a low level of communities, regardless of the resolution parameter. \\
 
 \begin{figure}[h]
    \includegraphics[width=8cm]{figure3.png}
    \caption{Example of caption.}
 \end{figure}
 
-The modularity was a low 0.320. The average degree in this network was much lower than author citations, at 5.259, though the weighted degree was about where we expected it, at about 26.9. Of note, there was a low level of communities, as community structure did not particularly influence these journal citations.\\
+\begin{table}[]
+\centering
+\caption{My caption}
+\label{my-label}
+\begin{tabular}{|l|l|}
+\hline
+Journals               & 291   \\ \hline
+Citation               & 13445 \\ \hline
+Average Degree         & 6.344 \\ \hline
+Number Communities     & 5     \\ \hline
+Clustering Coefficient & .321  \\ \hline
+\end{tabular}
+\end{table}
+\\
 
 The interesting result we found was when we compared the network we generated to the H5-Index found on google scholar.[7] We found our most heavily cited journals, like the Astrophysics Journal, and the Monthly Notices of the Royal Astronomical Society also scored high on the H-index rating. We think our measure of success can be slightly different from H5-Index, where H-Index looks at citations over time; our rating looks at bursts of citations in one particular field. For this particular field, astrophysics, our metrics did not completely align with H-Index. In particular, The Astrophysical Journal scored higher on our metrics than Science or Nature, which both have much higher H-Indexes. We believe looking at burst citations may be valuable in establishing better success metrics for our papers.\\
 
