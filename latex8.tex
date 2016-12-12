@@ -97,19 +97,23 @@ Lastly, we attempted to generate our own success metrics. We tried to look at th
 \Section{Results}
 
 \SubSection{Experimental Setup and Practical Results M1}
-Through our initial research and data gathering, we have found that most papers include a large number of citations, between 10 and 20 citations a paper. We gathered our initial set of papers from the SAO/NASA Astrophysics Data System [3]. We started by looking at 100  starting papers. This generated a network that was far too large to visualize, as it balooned to many thousands of papers after looking at the citations. Because the number of citations was so large, we had to scale down our network in order to run some simulations on it on Gephi. What we found in our citation network was rather interesting. The network had the following properties:
+Through our initial research and data gathering, we have found that most papers include a large number of citations, between 10 and 20 citations a paper. We gathered our initial set of papers from the SAO/NASA Astrophysics Data System [3]. We started by looking at 100  starting papers. This generated a network that was far too large to visualize, as it balooned to many thousands of papers after looking at the citations. Because the number of citations was so large, we had to scale down our network in order to run some simulations on it on Gephi. What we found in our citation network was rather interesting. The network properties are in table 1.
+
 \begin{table}[]
 \centering
 \caption{My caption}
 \label{my-label}
-\begin{tabular}{ll}
-Papers                 & 6808  \\
-Citations              & 10607 \\
-Average Degree         & 3.116 \\
-Number Communities     & 19-21 \\
-Clustering Coefficient & 0.047
+\begin{tabular}{|l|l|}
+\hline
+Papers                 & 6808  \\ \hline
+Citations              & 10607 \\ \hline
+Average Degree         & 3.116 \\ \hline
+Number Communities     & 19-21 \\ \hline
+Clustering Coefficient & 0.047 \\ \hline
 \end{tabular}
 \end{table}
+
+This dataset ended up not being used in our final results, but gave us an initial way to mine for data that we built off of for the remainder of the project.
 
 \begin{figure}[h]
    \includegraphics[width=8cm]{figure1.png}
