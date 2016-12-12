@@ -82,7 +82,7 @@ Our approach relies on our attempts to acquire a wide range of data. As highligh
 
 Our approach has evolved throughout the completion of this project. For the first part of the project we had to develop ways to scrape data, and collect data from databases who's intended purpose was not to be data-mined in the way we have intended. We found a way to do bulk data collection from the SAO/NASA database. This allowed us to gather papers and the citations between them. We manually had to query the Scopus database to find collaborations between institutions. This is because the Scopus API was not developed with large-scale network creation in mind. \\
 
-From the SAO/NASA Database we started with a subset of 10 papers based on the term "Astronomu". From those papers, we got all of the papers that were cited. We then went one level detail, and again got all of the papers those paper's cited. This allowed us to  use a large set  of more than 15000 papers. These papers had more than 35000 unique authors. As such, we had to limit the dataset when creating a network from it. Similarly, when we looked to compare disciplines, we replicated this process using "physics" as our search term. \\
+From the SAO/NASA Database we started with a subset of 10 papers based on the term "Astronomy". From those papers, we got all of the papers that were cited. We then went one level detail, and again got all of the papers those paper's cited. This allowed us to  use a large set  of more than 15000 papers. These papers had more than 35000 unique authors. As such, we had to limit the dataset when creating a network from it. Similarly, when we looked to compare disciplines, we replicated this process using "physics" as our search term. \\
 
 
 From Scopus, we began by looking at Carnegie Mellon University. We identified the top 50 collaborating institutions of CMU. A collaborating institution is defined as one where an author from that institution had directly coauthored a paper with another author from a different institution. We then looked at the top 150 Collaborating institutions of the institutions in that list. This left us with over 700 institutions, with tens of thousands of collaborations between them.  We faced a limitation here, as Scopus was not designed to be queried in the two-deep fashion we had been using. It is useful for looking up one paper, or one institution, but is not developed to find a network around them.\\
@@ -107,7 +107,6 @@ Through our initial research and data gathering, we have found that most papers 
 
 \begin{table}[h]
 \centering
-\caption{Paper Citation Data}
 \begin{tabular}{|l|l|}
 \hline
 Papers                 & 6808  \\ \hline
@@ -116,6 +115,7 @@ Average Degree         & 3.116 \\ \hline
 Number Communities     & 19-21 \\ \hline
 Clustering Coefficient & 0.047 \\ \hline
 \end{tabular}
+\caption{Paper Citation Data}
 \end{table}
 
 This dataset ended up not being used in our final results, but gave us an initial way to mine for data that we built off of for the remainder of the project.
@@ -138,7 +138,6 @@ Firstly, we looked at an Astronomy author collaboration network [Figure 2]. The 
 
 \begin{table}[h]
 \centering
-\caption{Author Collaboration Data}
 \label{my-label}
 \begin{tabular}{|l|l|}
 \hline
@@ -148,6 +147,7 @@ Average Degree       & 6.344 \\ \hline
 Communities          & 13    \\ \hline
 Modularity           & 0.721 \\ \hline
 \end{tabular}
+\caption{Author Collaboration Data}
 \end{table}
 
 We identified that the communities within this network seemed to be based around authors that had all collaborated on one large paper. As such, the community structure was important which explains our high modularity value. The initial intuition this gave us was to look for authors that had worked on those high-value large papers. \\
@@ -163,7 +163,6 @@ Next, we looked at a journal citation network [Figure 3]. The figure is colored 
 
 \begin{table}[h]
 \centering
-\caption{Journal Citation Data}
 \label{my-label}
 \begin{tabular}{|l|l|}
 \hline
@@ -173,6 +172,7 @@ Average Degree         & 6.344 \\ \hline
 Number Communities     & 5     \\ \hline
 Clustering Coefficient & .321  \\ \hline
 \end{tabular}
+\caption{Journal Citation Data}
 \end{table}
 
 The interesting result we found was when we compared the network we generated to the H5-Index found on google scholar.[7] We found our most heavily cited journals, like the Astrophysics Journal, and the Monthly Notices of the Royal Astronomical Society also scored high on the H-index rating. We think our measure of success can be slightly different from H5-Index, where H-Index looks at citations over time; our rating looks at bursts of citations in one particular field. For this particular field, astrophysics, our metrics did not completely align with H-Index. In particular, The Astrophysical Journal scored higher on our metrics than Science or Nature, which both have much higher H-Indexes. We believe looking at burst citations may be valuable in establishing better success metrics for our papers.\\
@@ -181,7 +181,6 @@ In milestone 3, we refined these networks somewhat. We looked at physics collabo
 
 \begin{table}[h]
 \centering
-\caption{Astronomy vs. Physics Graph Sizes}
 \label{my-label}
     \begin{tabular}{ | l | l | l |}
     \hline
@@ -191,6 +190,7 @@ In milestone 3, we refined these networks somewhat. We looked at physics collabo
     $> 10$ & 1,150 & 339 \\ \hline
     $> 20$ & 318 & N/A \\ \hline
     \end{tabular}\\
+\caption{Astronomy vs. Physics Graph Sizes}
 \end{table}
 
 Using this data, we observed some interesting differences between the astronomy and physics datasets. The first and most obvious difference is the number of authors with $>$10 publications. Significantly more authors in astronomy seemed to have worked on that many publications within this collaboration network. \\
@@ -226,12 +226,11 @@ Still, when making this network [Figure 6], we found that we had over 500 very i
 
 \begin{figure}[h]
    \includegraphics[width=8cm]{figure6.png}
-   \caption{Instiution Collaboration Network}
+   \caption{Institution Collaboration Network}
 \end{figure}
 
 \begin{table}[h]
 \centering
-\caption{My caption}
 \label{my-label}
 \begin{tabular}{|l|l|}
 \hline
@@ -241,6 +240,7 @@ Collaborations (edges) & 6518   \\ \hline
 Communities            & 5      \\ \hline
 Modularity             & 0.223  \\ \hline
 \end{tabular}
+\caption{Institution Collaboration Data}
 \end{table}
 
 Because of the method of data collection used, we also decided to filter out those nodes outside of the top 100 most connected nodes [Figure 7], most connected nodes for better visualization.  We found this showed the communities in a slightly nicer way, but the communities were still not heavily modular and did not inform us of much.    \\
@@ -260,7 +260,7 @@ When comparing the data across the communities, and to publicly available rankin
 
 During milestone 3, we also looked at our institution citation data in conjunction with the ARWU university world rankings [5]. Of note, ARWU rankings claim to include publication citation data within their rankings of universities. As such, we looked at a subset of universities from their rankings, and compared it to the larger nodes within our own network. Our results were somewhat compelling. \\
 
-When looking at ARWU rankings, we saw that high ranked institutions, namely Harvard, and MIT appeared to be collaborated with by most of our institutions. That is to say, that these very highly ranked institutions merited more collaboration across the board. We also found a `rich get richer' property om these networks, so good schools tended to like to work with other good schools. In fact, a key metric is that none of the universities who appeared in our top-50 list fell out of the top 500 universities according to the ARWU.\\
+When looking at ARWU rankings, we saw that high ranked institutions, namely Harvard, and MIT appeared to be collaborated with by most of our institutions. That is to say, that these very highly ranked institutions merited more collaboration across the board. We also found a `rich get richer' property of these networks, so good schools tended to like to work with other good schools. In fact, a key metric is that none of the universities who appeared in our top-50 list fell out of the top 500 universities according to the ARWU.\\
 
 In a word, these are interesting findings because it confirms what we know about the schools; they are good schools and as such professors want to work with them more often. \\
 
@@ -270,7 +270,7 @@ From these results, we can find one simple truth; when compared against general 
 
 For the next milestone, we are looking at applying a page-rank like analysis to the rankings. We would like to see if position in the graph relative to high-ranking universities indicates anything about the ranking of your university. For instance, if one authors papers with primarily Harvard, does that mean that their university is also good? This will serve as a way we can predict what a university may be ranked in the future. We also want to look at other datasets in order to confirm our results like the Times international rankings. \\
 
-Generally what we have found after application of this algorithm is that the rich-get-richer property seemed to hold true. When looking at a node, the ranking data of its neighbor nodes seems to be directly coorelated to the node itself. The metric however, isn't accurate enough to give credible data. It just seems to be coorelated. This may point to the fact that we need to take into account all of the neigboring collaborations. It alternatively may hint that network position doesn't have a true baring on ranking.
+Generally what we have found after application of this algorithm is that the rich-get-richer property seemed to hold true. When looking at a node, the ranking data of its neighbor nodes seems to be directly correlated to the node itself. The metric however, isn't accurate enough to give credible data. It just seems to be correlated. This may point to the fact that we need to take into account all of the neighboring collaborations. It alternatively may hint that network position doesn't have a true baring on ranking.
 
 %-------------------------------------------------------------------------
 \Section{Conclusion}
@@ -286,7 +286,7 @@ Our next step in that regard should be to classify the universities more tightly
 
 %-------------------------------------------------------------------------
 \Section{Future Work}
-Generally, future work in this area should be majorly focused on collecting more data. A good tool would be to figure out how to get the Scopus API to respond to the same sort of queries we leveraged against the SAO/NASA database. This would give one access to many fields of discipline, rather than the two that we were able to analyze in depth. Additionally, it may allow one to analyze far greater numbers of instituions. In general, more data here would be beneficial accross the board\\
+Generally, future work in this area should be majorly focused on collecting more data. A good tool would be to figure out how to get the Scopus API to respond to the same sort of queries we leveraged against the SAO/NASA database. This would give one access to many fields of discipline, rather than the two that we were able to analyze in depth. Additionally, it may allow one to analyze far greater numbers of institutions. In general, more data here would be beneficial across the board\\
 
 Additionally, one might want to look at the data we have collected as it progresses over time. This may yield some interesting analysis that we did not have time for. For instance, one could look at an author's relative position through time within a network. That, compared to their H-Index may be able to yield some relatively interesting results that we did not account for.\\
 
