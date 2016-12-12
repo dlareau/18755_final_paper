@@ -82,8 +82,7 @@ Our approach relies on our attempts to acquire a wide range of data. As highligh
 
 Our approach has evolved throughout the completion of this project. For the first part of the project we had to develop ways to scrape data, and collect data from databases who's intended purpose was not to be data-mined in the way we have intended. We found a way to do bulk data collection from the SAO/NASA database. This allowed us to gather papers and the citations between them. We manually had to query the Scopus database to find collaborations between institutions. This is because the Scopus API was not developed with large-scale network creation in mind. \\
 
-From the SAO/NASA Database we started with a subset of 10 papers based on the term "Astronomy". From those papers, we got all of the papers that were cited. We then went one level detail, and again got all of the papers those paper's cited. This allowed us to  use a large set  of more than 15000 papers. These papers had more than 35000 unique authors. As such, we had to limit the dataset when creating a network from it. Similarly, when we looked to compare disciplines, we replicated this process using "physics" as our search term. \\
-
+From the SAO/NASA Database we started with a subset of 10 papers based on the term ``Astronomy''. From those papers, we got all of the papers that were cited. We then went one level deeper, and again got all of the papers those paper's cited. This allowed us to  use a large set  of more than 15,000 papers. These papers had more than 35,000 unique authors. As such, we had to limit the dataset when creating a network from it. Similarly, when we looked to compare disciplines, we replicated this process using ``physics'' as our search term. \\
 
 From Scopus, we began by looking at Carnegie Mellon University. We identified the top 50 collaborating institutions of CMU. A collaborating institution is defined as one where an author from that institution had directly coauthored a paper with another author from a different institution. We then looked at the top 150 Collaborating institutions of the institutions in that list. This left us with over 700 institutions, with tens of thousands of collaborations between them.  We faced a limitation here, as Scopus was not designed to be queried in the two-deep fashion we had been using. It is useful for looking up one paper, or one institution, but is not developed to find a network around them.\\
 
@@ -293,7 +292,7 @@ Additionally, one might want to look at the data we have collected as it progres
 %-------------------------------------------------------------------------
 \Section{Citations}
 \relax\noindent
- [1] Sinatra, Roberta, et al. "A century of physics." Nature Physics11.10(2015):791-796.\\
+ [1] Sinatra, Roberta, et al. ``A century of physics.'' Nature Physics11.10(2015):791-796.\\
 \relax
  [2] M. E. J. Newman, Phys. Rev. E 74, 036104 (2006\\
 \relax
