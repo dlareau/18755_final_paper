@@ -1,23 +1,23 @@
 
 %
-%  $Description: Author guidelines and sample document in LaTeX 2.09$ 
+%  $Description: Author guidelines and sample document in LaTeX 2.09$
 %
 %  $Author: Dillon Lareau $
 %  $Date: 12/12/2016 $
 %  $Revision: 1.0 $
 %
 
-\documentclass[times, 10pt,twocolumn]{article} 
+\documentclass[times, 10pt,twocolumn]{article}
 \usepackage{latex8}
 \usepackage{times}
 
 %\documentstyle[times,art10,twocolumn,latex8]{article}
 
-%------------------------------------------------------------------------- 
-% take the % away on next line to produce the final camera-ready version 
+%-------------------------------------------------------------------------
+% take the % away on next line to produce the final camera-ready version
 \pagestyle{empty}
 
-%------------------------------------------------------------------------- 
+%-------------------------------------------------------------------------
 \begin{document}
 
 \title{Citation and Affiliation Networks in Academia }
@@ -25,9 +25,9 @@
 \author{Gabriel Hobeika\\
 ECE, Carnegie Mellon University\\ Pittsburgh, PA, USA\\
 gph@andrew.cmu.edu\\
-% For a paper whose authors are all at the same institution, 
+% For a paper whose authors are all at the same institution,
 % omit the following lines up until the closing ``}''.
-% Additional authors and addresses can be added with ``\and'', 
+% Additional authors and addresses can be added with ``\and'',
 % just like the second author.
 \and
 Dillon Lareau\\
@@ -39,15 +39,15 @@ jlareau@andrew.cmu.edu\\
 \thispagestyle{empty}
 
 \begin{abstract}
-Citation networks in academia can provide insight into the success of papers, as well as the success of their authors. Furthermore, trends in paper citations can point to new rising ideas, enlighten our understanding of relationships between universities and other institutions and between disciplines. While there has been some research into academic citation networks, we feel the need to go deeper. We will browse databases of papers, scrape relevant information to create networks, and then analyze those networks to identify what creates a successful paper, as well as any interesting relationships between institutions, journals and cross discipline works. We will compare our work and the network data that we find against other metrics that measure success. We will then see if any network-science based metrics help us predict or identify success in the traditional networks. 
+Citation networks in academia can provide insight into the success of papers, as well as the success of their authors. Furthermore, trends in paper citations can point to new rising ideas, enlighten our understanding of relationships between universities and other institutions and between disciplines. While there has been some research into academic citation networks, we feel the need to go deeper. We will browse databases of papers, scrape relevant information to create networks, and then analyze those networks to identify what creates a successful paper, as well as any interesting relationships between institutions, journals and cross discipline works. We will compare our work and the network data that we find against other metrics that measure success. We will then see if any network-science based metrics help us predict or identify success in the traditional networks.
 \end{abstract}
 
 
-%------------------------------------------------------------------------- 
+%-------------------------------------------------------------------------
 \Section{Introduction}
 Our project will be looking at network trends in the world of academia. More specifically, we seek to analyze citations and references between different authors, disciplines, and fields of study. We hope to be able to identify what marks ‘success’ in different ways throughout academia as described by our questions below.
 
-%------------------------------------------------------------------------- 
+%-------------------------------------------------------------------------
 \Section{Motivation}
 Firstly, we specifically want to analyze what types of colleges and universities are most likely to have authors cross collaborate. We also hope to identify whether things like ranking, endowment, or school type (private vs. public) determine anything about whether academics are likely to work together in the future. We also want to see how ranking of university is related to institutions that they work with, and see if we can devise a way to rank those institutions based on their network position.\\
 
@@ -60,7 +60,7 @@ Lastly, we want to be able to look at some of our previous subjects across time.
 Networks are fundamental to each of these goals. For each of the goals, in order to identify the relationships between papers on a large scale we will have to create networks that identify what papers cited, where those papers are from, whom they reference, and what connections do the papers and authors have to the outside world.
 
 
-%------------------------------------------------------------------------- 
+%-------------------------------------------------------------------------
 \Section{Prior Work}
 We have viewed some authors previous work in the field of academic paper citation networks. \\
 
@@ -74,7 +74,7 @@ We differ from Newman, as we are not just concerned with communities in academia
 
 We want to focus on broad analysis of the networks in academia, over the whole spectrum of academia. Most other work in the field focuses on one metric, or one quantitative finding. Our work seeks to define the abstract relationships across academia, between journals, institutions, and even between authors themselves. We hope that our broad scope will give us insights into success not previously explored.
 
-%------------------------------------------------------------------------- 
+%-------------------------------------------------------------------------
 \Section{Approach}
 Our approach relies on our attempts to acquire a wide range of data. As highlighted before, we need many data to evaluate the metrics we want, and as such, we are going to need to figure out ways to extract data from existing databases for usages that they have not catered to before.\\
 
@@ -88,13 +88,13 @@ For milestone 3 we have done further analysis on the networks we created for mil
 
 After doing all this data collection and network creation, we hope to be able to analyze the data and truly identify the trends in academia that we were looking for. We are assuming that many of these networks will have some very connected nodes and some fringe nodes, as we believe that academic work comes in bursts, and some papers are fundamental to academia. We have also made the assumption that cross discipline work is prevalent in academia and will be easy to identify. We also have gone into this project with the assumption that private and public universities may have different types of citation networks. We are no longer assuming a U.S. centric data set will be useful in finding our results. This is after analyzing the networks we currently have; and seeing that academic work is far more internationally connected than we originally thought.
 
-%------------------------------------------------------------------------- 
+%-------------------------------------------------------------------------
 \Section{Results}
 
 \SubSection{Experimental Setup and Practical Results M1}
 Through our initial research and data gathering, we have found that most papers include a large number of citations, between 10 and 20 citations a paper. We gathered our initial set of papers from the SAO/NASA Astrophysics Data System [3]. Because the number of citations was so large, we had to scale down our network in order to run some simulations on it on GePhi. What we found in our citation network was rather interesting. The network ended up having 6,808 nodes and 10,607 edges. This graph had an average degree of 3.116 and the distribution of the degrees led us to believe the graph was scale free. The graph also had an average clustering coefficient that was lower than we were expecting at 0.047. Lastly we found that upon using a random algorithm to induce communities, we had around 19-21 communities form. Essentially, there was a lot of cross connection between papers in our network. We also did see what we are calling “fringe” papers. Those papers are papers on the edge of the network that cite a large number of papers not found in the rest of the network. A picture of this network is included in the figure below.
 
-%------------------------------------------------------------------------- 
+%-------------------------------------------------------------------------
 \SubSection{Experimental Setup and Practical Results M2 + M3}
 After getting that initial research from M1, we decided to narrow down what we were looking for, and we split up our data collection so that we could accomplish all of our goals. What we looked to create were: \\
 1. A collaboration network between authors who have at least 10 publications \\
@@ -168,7 +168,7 @@ For the next milestone, we are looking at applying a page-rank like analysis to 
 Our notions of success for institutions still need some polish, but we have found that highly ranked institutions, via world rankings (from Wikipedia) tend to cite other institutions that were also highly ranked. We also found that institutions with a large number of authors found themselves at the top of the collaboration lists (like the Ohio State University.) While not explored yet, we think that filtering on paper type and institutional rankings from third party sources may give us more incite in to what makes a successful institution successful.
 
 
-%------------------------------------------------------------------------- 
+%-------------------------------------------------------------------------
 \Section{Conclusion}
 We have found now, that because we were able to gather a significant amount of data that we are beginning to see some results. Those results do somewhat differ from the results we had anticipated. For instance, the institution citation network had to include international institutions rather than just US based ones. Without internationally institutions, it would have been impossible accurately capture the collaborations that occur between institutions. International collaboration is simply much more common than we thought. \\
 
@@ -180,14 +180,14 @@ Interestingly for our university data, we found what one would expect, that high
 
 Our next step in that regard should be to classify the universities more tightly, and maybe establish a ranking system that shows how many times they are cited by other high ranking universities. This may help us identify institutions are up and coming, and ones that may make a splash in college rankings. We will also produce these same results with H-index
 
-%------------------------------------------------------------------------- 
+%-------------------------------------------------------------------------
 \Section{Future Work}
 M3: Now that we have collected a good amount of working data, we must begin thinking more in depth how to compare success in academia. We should also look into cross correlating both H-index, and magazine rankings with our journal and institution networks. Lastly, we will work together on branching out the author subjects from just the field of astrophysics. \\
 
 M4: Further analysis of our data from M2 left us with some interesting questions. We are now narrowing down the success metrics we might be using to view institutional and journal success. We need to apply these similar metrics to authors. We hope to be able to show by the deadline some unique metrics that will truly help us identify what success is in academia, and how to see when success will be achieved. For instance, the colocation of the universities with ‘good universities’ may be important, we also plan to do this analysis with  h-index of authors.
 
-%------------------------------------------------------------------------- 
-\Section{Citations} 
+%-------------------------------------------------------------------------
+\Section{Citations}
 \relax
  [1] Sinatra, Roberta, et al. "A century of physics." Nature Physics11.10(2015):791-796.\\
 \relax
@@ -203,45 +203,44 @@ M4: Further analysis of our data from M2 left us with some interesting questions
 \relax
  [7] https://scholar.google.com/citations?view\_op=top\_venues\&hl=en\\
 
-%------------------------------------------------------------------------- 
+%-------------------------------------------------------------------------
 \SubSection{Type-style and fonts}
 
-Figure and table captions should be 10-point 
+Figure and table captions should be 10-point
 Helvetica boldface type as in
 \begin{figure}[h]
    \caption{Example of caption.}
 \end{figure}
 
-\noindent Long captions should be set as in 
-\begin{figure}[h] 
-   \caption{Example of long caption requiring more than one line. It is 
-     not typed centered but aligned on both sides and indented with an 
+\noindent Long captions should be set as in
+\begin{figure}[h]
+   \caption{Example of long caption requiring more than one line. It is
+     not typed centered but aligned on both sides and indented with an
      additional margin on both sides of 1~pica.}
 \end{figure}
 
-\noindent Callouts should be 9-point Helvetica, non-boldface type. 
-Initially capitalize only the first word of section titles and first-, 
+\noindent Callouts should be 9-point Helvetica, non-boldface type.
+Initially capitalize only the first word of section titles and first-,
 second-, and third-order headings.
 
-%------------------------------------------------------------------------- 
+%-------------------------------------------------------------------------
 \SubSection{Footnotes}
 
 Please use footnotes sparingly%
 \footnote
    {%
-     Or, better still, try to avoid footnotes altogether.  To help your 
-     readers, avoid using footnotes altogether and include necessary 
-     peripheral observations in the text (within parentheses, if you 
+     Or, better still, try to avoid footnotes altogether.  To help your
+     readers, avoid using footnotes altogether and include necessary
+     peripheral observations in the text (within parentheses, if you
      prefer, as in this sentence).
    }
-and place them at the bottom of the column on the page on which they are 
+and place them at the bottom of the column on the page on which they are
 referenced. Use Times 8-point type, single-spaced.
 
 
-%------------------------------------------------------------------------- 
+%-------------------------------------------------------------------------
 \nocite{ex1,ex2}
 \bibliographystyle{latex8}
 \bibliography{latex8}
 
 \end{document}
-
