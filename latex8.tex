@@ -68,7 +68,7 @@ We have viewed some authors previous work in the field of academic paper citatio
 
 One of our primary inspirations titled “A Century of Physics” [1], looks at 100 years of papers in the physics world through web of science and analyzes the long-term impact of different publications based on their reference data. It shows how publications and papers can have an impact over a range of time.\\
 
-Our work differs from that paper, as we are generally looking at small-scale in terms of time when compared to the 100 years of physics papers. We want to be able to identify what will cause an impact, not what has caused an impact in the past. Additionally, as the title implies, “A Century of Physics” focuses just on the physics discipline. It is our hope to find data that can apply to multiple disciplines, and cross discipline work. We have found  acquiring paper data for many disciplines is a complex process. In this paper we have been able to look at collaborations between institutions accross all disciplines, but not at many disciplines at the paper-level. \\
+Our work differs from that paper, as we are generally looking at small-scale in terms of time when compared to the 100 years of physics papers. We want to be able to identify what will cause an impact, not what has caused an impact in the past. Additionally, as the title implies, “A Century of Physics” focuses just on the physics discipline. It is our hope to find data that can apply to multiple disciplines, and cross discipline work. We have found  acquiring paper data for many disciplines is a complex process. In this paper we have been able to look at collaborations between institutions across all disciplines, but not at many disciplines at the paper-level. \\
 
 We also looked at Newman’s [2] approach in “Finding community structure in networks using the eigenvectors of matrices.” This paper was helpful in helping us analyze the citation information from a community perspective. Additionally, Newman has a publicly available dataset for his work, which we do not directly use in our work, but that we have viewed to see how networks are sometimes structures when applied to academic citations and collaborations.\\
 
@@ -82,7 +82,7 @@ Our approach relies on our attempts to acquire a wide range of data. As highligh
 
 Our approach has evolved throughout the completion of this project. For the first part of the project we had to develop ways to scrape data, and collect data from databases who's intended purpose was not to be data-mined in the way we have intended. We found a way to do bulk data collection from the SAO/NASA database. This allowed us to gather papers and the citations between them. We manually had to query the Scopus database to find collaborations between institutions. This is because the Scopus API was not developed with large-scale network creation in mind. \\
 
-From the SAO\NASA Database we started with a subset of 10 papers. From those papers, we got all of the papers that were cited. We then went one level detail, and again got all of the papers those paper's cited. This allowed us to  use a large set  of more than 15000 papers. These papers had more than 35000 unique authors. As such, we had to limit the dataset when creating a network from it. \\
+From the SAO/NASA Database we started with a subset of 10 papers. From those papers, we got all of the papers that were cited. We then went one level detail, and again got all of the papers those paper's cited. This allowed us to  use a large set  of more than 15000 papers. These papers had more than 35000 unique authors. As such, we had to limit the dataset when creating a network from it. \\
 
 From Scopus, we began by looking at Carnegie Mellon University. We identified the top 50 collaborating institutions of CMU. A collaborating institution is defined as one where an author from that institution had directly coauthored a paper with another author from a different institution. We then looked at the top 150 Collaborating institutions of the institutions in that list. This left us with over 700 institutions, with tens of thousands of collaborations between them.  We faced a limitation here, as Scopus was not designed to be queried in the two-deep fashion we had been using. It is useful for looking up one paper, or one institution, but is not developed to find a network around them.\\
 
@@ -97,7 +97,7 @@ Lastly, we attempted to generate our own success metrics. We tried to look at th
 \Section{Results}
 
 \SubSection{Experimental Setup and Practical Results M1}
-Through our initial research and data gathering, we have found that most papers include a large number of citations, between 10 and 20 citations a paper. We gathered our initial set of papers from the SAO/NASA Astrophysics Data System [3]. We started by looking at 100  starting papers. This generated a network that was far too large to visualize, as it balooned to many thousands of papers after looking at the citations. Because the number of citations was so large, we had to scale down our network in order to run some simulations on it on Gephi. What we found in our citation network was rather interesting. The network properties are in table 1.
+Through our initial research and data gathering, we have found that most papers include a large number of citations, between 10 and 20 citations a paper. We gathered our initial set of papers from the SAO/NASA Astrophysics Data System [3]. We started by looking at 100  starting papers. This generated a network that was far too large to visualize, as it ballooned to many thousands of papers after looking at the citations. Because the number of citations was so large, we had to scale down our network in order to run some simulations on it on Gephi. What we found in our citation network was rather interesting. The network properties are in [Table 1].
 
 \begin{table}[]
 \centering
@@ -129,7 +129,7 @@ After getting that initial research from M1, we decided to narrow down what we w
 
 We managed to obtain more data out of the SAO/NASA Data system. Using the data that we obtained, we created both a collaboration network between authors who have at least 10 publications, and a citation network between journals based on the data that lead to the author network. To create these networks we followed the model outlined in the approach.  \\
 
-Firstly, we looked at the author collaboration network [Figure 2].  Our first approach was to look at the communities within this network. We found a high value of modularit and a high number of communities, with the normal random community finding algorithm used in Gephi. The baseline network statistics are included in [table 2] \\
+Firstly, we looked at the author collaboration network [Figure 2].  Our first approach was to look at the communities within this network. We found a high value of modularity and a high number of communities, with the normal random community finding algorithm used in Gephi. The baseline network statistics are included in [Table 2] \\
 
 \begin{figure}[h]
    \includegraphics[width=8cm]{figure2.png}
@@ -154,7 +154,7 @@ We identified that the communities within this network seemed to be based around
 
 We found Gephi’s community analysis helpful in finding these specific authors. We have looked at this as one metric of success within our network; that is to say if an author collaborates on more than one ‘big’ papers, he must be a respected author. \\
 
-Next, we looked at a journal citation network [Figure 3]. The figure is colored by community of the journal. The general properties of this network can be found in table 3. It was generated from the set of papers that made the author collaboration network. Unlike the author network, this network did not have a high modulatrity value. This means the communities discovered in this network are less important. In addition, it had a low level of communities, regardless of the resolution parameter. \\
+Next, we looked at a journal citation network [Figure 3]. The figure is colored by community of the journal. The general properties of this network can be found in [Table 3]. It was generated from the set of papers that made the author collaboration network. Unlike the author network, this network did not have a high modularity value. This means the communities discovered in this network are less important. In addition, it had a low level of communities, regardless of the resolution parameter. \\
 
 \begin{figure}[h]
    \includegraphics[width=8cm]{figure3.png}
@@ -174,12 +174,15 @@ Number Communities     & 5     \\ \hline
 Clustering Coefficient & .321  \\ \hline
 \end{tabular}
 \end{table}
-\\
 
 The interesting result we found was when we compared the network we generated to the H5-Index found on google scholar.[7] We found our most heavily cited journals, like the Astrophysics Journal, and the Monthly Notices of the Royal Astronomical Society also scored high on the H-index rating. We think our measure of success can be slightly different from H5-Index, where H-Index looks at citations over time; our rating looks at bursts of citations in one particular field. For this particular field, astrophysics, our metrics did not completely align with H-Index. In particular, The Astrophysical Journal scored higher on our metrics than Science or Nature, which both have much higher H-Indexes. We believe looking at burst citations may be valuable in establishing better success metrics for our papers.\\
 
 In milestone 3, we refined these networks somewhat. We looked at physics collaborations vs astronomy collaborations during milestone 3. What we found was somewhat interesting. We started with the same amount of papers, and roughly the same amount of author [table 4] \\
 
+\begin{table}[]
+\centering
+\caption{My caption}
+\label{my-label}
     \begin{tabular}{ | l | l | l |}
     \hline
     Discipline: & Astronomy & Physics \\ \hline
@@ -188,6 +191,7 @@ In milestone 3, we refined these networks somewhat. We looked at physics collabo
     $> 10$ & 1,150 & 339 \\ \hline
     $> 20$ & 318 & N/A \\ \hline
     \end{tabular}\\
+\end{table}
 
 Using this data, we observed some interesting differences between the astronomy and physics datasets. The first and most obvious difference is the number of authors with $>$10 publications. Significantly more authors in astronomy seemed to have worked on that many publications within this collaboration network. \\
 
@@ -235,7 +239,7 @@ We also found that institutions tend to cite other institutions that are closer 
 
 The core metric, however, when looking at institutions continues to be that institutions number of authors. Institutions with a large number of authors tend to just have more coauthorships in general.  We somewhat accounted for this problem in the data collection method. Because our data collection was just based on the top 50 collaborating institutions for the institutions that we looked at, we were able to ensure that one institution with a very high number of publications wouldn’t be significantly biased over the others. This is because we are not looking at all their papers, but rather at the subset of papers that were worked on with their most collaborated affiliations. \\
 
-When comparing the data across the communities, and to publically available ranking data we did garner some interesting insights. Firstly, as mentioned before, institutions with high rankings in a particular field did tend to work together more often. We looked into this further, to see if this was biased by there being a large number of papers published by those institutions in those fields, and we found that wasn’t necessarily the case. For instance, while roughly 34\% of CMU’s papers are published in the field of computer science, only about 10\% of the papers from MIT were published in that field. That hints at the notion that CMU researchers may be more inclined to work with MIT researchers, and vice versa, even though CMU publishes more computer science papers compared to its other disciplines than MIT does. \\
+When comparing the data across the communities, and to publicly available ranking data we did garner some interesting insights. Firstly, as mentioned before, institutions with high rankings in a particular field did tend to work together more often. We looked into this further, to see if this was biased by there being a large number of papers published by those institutions in those fields, and we found that wasn’t necessarily the case. For instance, while roughly 34\% of CMU’s papers are published in the field of computer science, only about 10\% of the papers from MIT were published in that field. That hints at the notion that CMU researchers may be more inclined to work with MIT researchers, and vice versa, even though CMU publishes more computer science papers compared to its other disciplines than MIT does. \\
 
 During milestone 3, we also looked at our institution citation data in conjunction with the ARWU university world rankings [5]. Of note, ARWU rankings claim to include publication citation data within their rankings of universities. As such, we looked at a subset of universities from their rankings, and compared it to the larger nodes within our own network. Our results were somewhat compelling. \\
 
