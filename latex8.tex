@@ -82,7 +82,8 @@ Our approach relies on our attempts to acquire a wide range of data. As highligh
 
 Our approach has evolved throughout the completion of this project. For the first part of the project we had to develop ways to scrape data, and collect data from databases who's intended purpose was not to be data-mined in the way we have intended. We found a way to do bulk data collection from the SAO/NASA database. This allowed us to gather papers and the citations between them. We manually had to query the Scopus database to find collaborations between institutions. This is because the Scopus API was not developed with large-scale network creation in mind. \\
 
-From the SAO/NASA Database we started with a subset of 10 papers. From those papers, we got all of the papers that were cited. We then went one level detail, and again got all of the papers those paper's cited. This allowed us to  use a large set  of more than 15000 papers. These papers had more than 35000 unique authors. As such, we had to limit the dataset when creating a network from it. \\
+From the SAO/NASA Database we started with a subset of 10 papers based on the term "Astronomu". From those papers, we got all of the papers that were cited. We then went one level detail, and again got all of the papers those paper's cited. This allowed us to  use a large set  of more than 15000 papers. These papers had more than 35000 unique authors. As such, we had to limit the dataset when creating a network from it. Similarly, when we looked to compare disciplines, we replicated this process using "physics" as our search term. \\
+
 
 From Scopus, we began by looking at Carnegie Mellon University. We identified the top 50 collaborating institutions of CMU. A collaborating institution is defined as one where an author from that institution had directly coauthored a paper with another author from a different institution. We then looked at the top 150 Collaborating institutions of the institutions in that list. This left us with over 700 institutions, with tens of thousands of collaborations between them.  We faced a limitation here, as Scopus was not designed to be queried in the two-deep fashion we had been using. It is useful for looking up one paper, or one institution, but is not developed to find a network around them.\\
 
@@ -92,7 +93,7 @@ We then performed simple analysis on these networks. We looked at the degrees of
 
 After we had performed the rudimentary success analysis, we looked to get real-world metrics of success. For authors, we looked at their H-Index. We chose H-Index to look at, as it is currently one of the most widely used measures of success that looks both at an authors contributions and their impacts. Similarly from journals, we looked at the H-5 indexes of the journals as provided by google scholar. Lastly, for the institutions, we looked at both the ARWU world rankings, and the Times world rankings to identify the success of the institutions in teh real world. We compared these metrics to the network-statistics of the networks we had created. We tried to identify correlating trends to ascertain if networks could tell us anything about academia. \\
 
-Lastly, we attempted to generate our own success metrics. We tried to look at the ranking of the nearby-nodes within our networks to ascertain any knowledge about the potential ranking of the focus node. Our results and full process for this analysis are discussed within. 
+Lastly, we attempted to generate our own success metrics. We tried to look at the ranking of the nearby-nodes within our networks to ascertain any knowledge about the potential ranking of the focus node. Our results and full process for this analysis are discussed within.
 %-------------------------------------------------------------------------
 \Section{Results}
 
@@ -129,7 +130,7 @@ After getting that initial research from M1, we decided to narrow down what we w
 
 We managed to obtain more data out of the SAO/NASA Data system. Using the data that we obtained, we created both a collaboration network between authors who have at least 10 publications, and a citation network between journals based on the data that lead to the author network. To create these networks we followed the model outlined in the approach.  \\
 
-Firstly, we looked at the author collaboration network [Figure 2].  Our first approach was to look at the communities within this network. We found a high value of modularity and a high number of communities, with the normal random community finding algorithm used in Gephi. The baseline network statistics are included in [Table 2] \\
+Firstly, we looked at an Astronomy author collaboration network [Figure 2]. The colors in this network visualization represent the communities that the nodes belong to. Our first approach was to look at the communities within this network. We found a high value of modularity and a high number of communities, with the normal random community finding algorithm used in Gephi. The baseline network statistics are included in [Table 2] \\
 
 \begin{figure}[h]
    \includegraphics[width=8cm]{figure2.png}
@@ -152,7 +153,7 @@ Modularity           & 0.721 \\ \hline
 
 We identified that the communities within this network seemed to be based around authors that had all collaborated on one large paper. As such, the community structure was important which explains our high modularity value. The initial intuition this gave us was to look for authors that had worked on those high-value large papers. \\
 
-We found Gephi’s community analysis helpful in finding these specific authors. We have looked at this as one metric of success within our network; that is to say if an author collaborates on more than one ‘big’ papers, he must be a respected author. \\
+We found Gephi’s community analysis helpful in finding these specific authors. We have looked at this as one metric of success within our network; that is to say if an author collaborates on more than one ‘big’ papers, he must be a respected author. To put this in more detail, if we can find an author who works on a largely-collaborated paper, it may predict his success.\\
 
 Next, we looked at a journal citation network [Figure 3]. The figure is colored by community of the journal. The general properties of this network can be found in [Table 3]. It was generated from the set of papers that made the author collaboration network. Unlike the author network, this network did not have a high modularity value. This means the communities discovered in this network are less important. In addition, it had a low level of communities, regardless of the resolution parameter. \\
 
@@ -197,16 +198,19 @@ Using this data, we observed some interesting differences between the astronomy 
 
 This was interesting, as we had previously figured that the structure of the citation networks would not vary that greatly between disciplines. This set of data, however, shows something different. It suggests that with physics papers there are less prolific authors among the data that we were able to sample, than astronomy datasets. \\
 
-The physics dataset, filtered on 10 papers, also is not a completely connected network. The image below shows the comparative sparsity of the dataset when compared to the above images of the astronomy data. The image shows that in physics, like astronomy, there are clearly defined communities. That is to say that we identified that some authors are still more likely to work together and to cite each other and that within physics there are still some prolific authors. \\
+The physics dataset, filtered on 10 papers, also is not a completely connected network. [Figure 4] shows how sparse the physics dataset is when compared to the astronamy data [figure 2]. The image shows that in physics, like astronomy, there are clearly defined communities. That is to say that we identified that some authors are still more likely to work together and to cite each other and that within physics there are still some prolific authors. \\
 
-We have also looked at H-Index as a success metric [6], both globally and measured in our own citation network. We compared this universal success metric to network factors, like node degree, K-Core, and centralities. We have included graphs with this paper to show the relevant trends that we have found. In summary, those trends are generally inconclusive. We were however able to find some interesting results when looking at collaboration within our network when compared to the H-Index of the network. \\
+We have also looked at H-Index as a success metric [6], both globally and measured in our own citation network. We compared this universal success metric to network factors, like node degree, K-Core, and centralities. We have included graphs with this paper to show the relevant trends that we have found. \\
+
+In summary, those trends are generally inconclusive. We were however able to find some interesting results when looking at our author collaboration network within our network when compared to the H-Index from our astronomy citation network. \\
 
 \begin{figure}[h]
    \includegraphics[width=8cm]{figure4.png}
    \caption{Example of caption.}
 \end{figure}
 
-As mentioned before, our most significant result when looking at H-index relative to the paper networks, was H-index to degree of collaborations. The graph [Figure 5] has a high degree of certainty ($R^2 = 0.8491$)  \\
+As mentioned before, our most significant result when looking at H-index relative to the paper networks, was H-index to degree of collaborations. The graph [Figure 5] has a high
+degree of certainty ($R^2 = 0.8491$)  \\
 
 \begin{figure}[h]
    \includegraphics[width=8cm]{figure5.png}
@@ -217,9 +221,9 @@ This graph shows H-index on the x-axis with degree on the y-axis. This is the mo
 
 We believe this has some rational backings: first of all, if an author collaborates more, they may have published more papers. Publishing papers has a factor in h-index as it measures productivity of paper writers. Also, if a professor’s work is collaborated on by other professors, those professors may self-cite their work in other papers. This will lead to the second requirement of H-index, citations, to be accomplished more easily. \\
 
-The last network we generated drew from a different source. We used SCOPUS [4], which is one of the largest citation databases, in order to find the top 150 collaborating institutions, from 50 starting institutions. We came to this method of data collection, because we found that institutions typically have collaborations and citations with a very large number of other institutions. To try to grab all of the collaborations would be near impossible. We figured the top 150, which typically meant more than 500 collaborations had occurred, would narrow down our data set to a manageable point, without removing too much specificity. \\
+The last network we generated drew from a different source. We used Scopus [4], which is one of the largest citation databases, in order to find the top 150 collaborating institutions, from 50 starting institutions. We came to this method of data collection, because we found that institutions typically have collaborations and citations with a very large number of other institutions. To try to grab all of the collaborations would be near impossible. We figured the top 150, which typically meant more than 500 collaborations had occurred, would narrow down our data set to a manageable point, without removing too much specificity. \\
 
-Still, when making this network [Figure 6], we found that we had almost 700 very inter connected institution nodes. As with the Journal Citation network, this collaboration network had a low level of modularity, and not a large number of communities. In fact, establishing a real community structure was almost impossible. We made sure to add weight to all of the edges, and when visualizing, made the most heavily connected nodes larger. \\
+Still, when making this network [Figure 6], we found that we had almost 700 very inter connected institution nodes. The basic network statistics are in [table 4]. As with the Journal Citation network, this collaboration network had a low level of modularity, and not a large number of communities. In fact, establishing a real community structure was almost impossible. We made sure to add weight to all of the edges, and when visualizing, made the most heavily connected nodes larger. \\
 
 \begin{figure}[h]
    \includegraphics[width=8cm]{figure6.png}
@@ -276,7 +280,7 @@ M4: Further analysis of our data from M2 left us with some interesting questions
 
 %-------------------------------------------------------------------------
 \Section{Citations}
-\relax\noindent 
+\relax\noindent
  [1] Sinatra, Roberta, et al. "A century of physics." Nature Physics11.10(2015):791-796.\\
 \relax
  [2] M. E. J. Newman, Phys. Rev. E 74, 036104 (2006\\
