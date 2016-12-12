@@ -10,6 +10,8 @@
 \documentclass[times, 10pt,twocolumn]{article} 
 \usepackage{latex8}
 \usepackage{times}
+\usepackage{graphicx}
+\graphicspath{ {images/} }
 
 %\documentstyle[times,art10,twocolumn,latex8]{article}
 
@@ -92,7 +94,12 @@ After doing all this data collection and network creation, we hope to be able to
 \Section{Results}
 
 \SubSection{Experimental Setup and Practical Results M1}
-Through our initial research and data gathering, we have found that most papers include a large number of citations, between 10 and 20 citations a paper. We gathered our initial set of papers from the SAO/NASA Astrophysics Data System [3]. Because the number of citations was so large, we had to scale down our network in order to run some simulations on it on GePhi. What we found in our citation network was rather interesting. The network ended up having 6,808 nodes and 10,607 edges. This graph had an average degree of 3.116 and the distribution of the degrees led us to believe the graph was scale free. The graph also had an average clustering coefficient that was lower than we were expecting at 0.047. Lastly we found that upon using a random algorithm to induce communities, we had around 19-21 communities form. Essentially, there was a lot of cross connection between papers in our network. We also did see what we are calling “fringe” papers. Those papers are papers on the edge of the network that cite a large number of papers not found in the rest of the network. A picture of this network is included in the figure below.
+Through our initial research and data gathering, we have found that most papers include a large number of citations, between 10 and 20 citations a paper. We gathered our initial set of papers from the SAO/NASA Astrophysics Data System [3]. Because the number of citations was so large, we had to scale down our network in order to run some simulations on it on GePhi. What we found in our citation network was rather interesting. The network ended up having 6,808 nodes and 10,607 edges. This graph had an average degree of 3.116 and the distribution of the degrees led us to believe the graph was scale free. The graph also had an average clustering coefficient that was lower than we were expecting at 0.047. Lastly we found that upon using a random algorithm to induce communities, we had around 19-21 communities form. Essentially, there was a lot of cross connection between papers in our network. We also did see what we are calling “fringe” papers. Those papers are papers on the edge of the network that cite a large number of papers not found in the rest of the network. A picture of this network is included in [Figure 1].
+
+\begin{figure}[h]
+   \includegraphics[width=8cm]{figure1.png}
+   \caption{Example of caption.}
+\end{figure}
 
 %------------------------------------------------------------------------- 
 \SubSection{Experimental Setup and Practical Results M2 + M3}
@@ -107,15 +114,25 @@ We managed to obtain more data out of the SAO/NASA Data system. Using the data t
 
 We chose not to include those papers, as the amount of authorships in those papers was skewing the network. For reference, both papers needed appendixes to note all of their authors, of which they had more than 2000. We do believe these two papers are still relevant to our research, as they do show that significant papers in academia can sometimes be the result of concerted, many yearlong efforts. Those papers, because they are so fundamental to their field, will usually be well connected, and heavily cited within academia. Additionally, these papers are unique to our dataset, as CERN, which funded them, is a multinational project, and the papers created on the Higgs-Boson from there must cite all researchers invited to spend time at CERN.\\
 
-Firstly, we looked at the author collaboration network (pictured below). Our first approach was to look at the communities within this network. We found a high level of modularity, 0.831, and a high number of communities, with the normal random community finding algorithm used in GePhi. \\
+Firstly, we looked at the author collaboration network [Figure 2]. Our first approach was to look at the communities within this network. We found a high level of modularity, 0.831, and a high number of communities, with the normal random community finding algorithm used in Gephi. 
+
+\begin{figure}[h]
+   \includegraphics[width=8cm]{figure2.png}
+   \caption{Example of caption.}
+\end{figure}
 
 We also found that the average degree was about 27, with a network diameter of 11. We expected the average degree to be high, as we had limited this network to authors with over 10 papers, as such they should have a large number of collaborators. \\
 
 The high modularity was also interesting to note. Some of the papers defined our communities. For instance, some papers had 40+ authors and those authors would all tend to form one community. When an author happened to work on two or more of those papers, they tended to become a central node, which defined a path between two communities. \\
 
-We found GePhi’s community analysis helpful in finding these specific authors. We have looked at this as one metric of success within our network; that is to say if an author collaborates on more than one ‘big’ papers, he must be a respected author. \\
+We found Gephi’s community analysis helpful in finding these specific authors. We have looked at this as one metric of success within our network; that is to say if an author collaborates on more than one ‘big’ papers, he must be a respected author. \\
 
-Next, we looked at a journal citation network (pictured below). It was generated from the set of papers that made the author collaboration network. Unlike the author network, this network did not have a high level of modularity. In addition, it had a low level of communities, regardless of the resolution parameter.\\
+Next, we looked at a journal citation network [Figure 3]. It was generated from the set of papers that made the author collaboration network. Unlike the author network, this network did not have a high level of modularity. In addition, it had a low level of communities, regardless of the resolution parameter. \\
+
+\begin{figure}[h]
+   \includegraphics[width=8cm]{figure3.png}
+   \caption{Example of caption.}
+\end{figure}
 
 The modularity was a low 0.320. The average degree in this network was much lower than author citations, at 5.259, though the weighted degree was about where we expected it, at about 26.9. Of note, there was a low level of communities, as community structure did not particularly influence these journal citations.\\
 
@@ -123,17 +140,34 @@ The interesting result we found was when we compared the network we generated to
 
 In milestone 3, we refined these networks somewhat. We looked at physics collaborations vs astronomy collaborations during milestone 3. What we found was somewhat interesting. We started with the same amount of papers, and roughly the same amount of authors, the numbers were as follows: \\
 
-TODO: insert chart\\
+    \begin{tabular}{ | l | l | l |}
+    \hline
+    Discipline: & Astronomy & Physics \\ \hline
+    Papers & 16,416 & 17,818  \\ \hline
+    Authors & 37,063 & 35,724 \\ \hline
+    $> 10$ & 1,150 & 339 \\ \hline
+    $> 20$ & 318 & N/A \\ \hline
+    \end{tabular}\\
 
-Using this data, we observed some interesting differences between the astronomy and physics datasets. The first and most obvious difference is the number of authors with >10 publications. Significantly more authors in astronomy seemed to have worked on that many publications within this collaboration network. \\
+Using this data, we observed some interesting differences between the astronomy and physics datasets. The first and most obvious difference is the number of authors with $>$10 publications. Significantly more authors in astronomy seemed to have worked on that many publications within this collaboration network. \\
 
 This was interesting, as we had previously figured that the structure of the citation networks would not vary that greatly between disciplines. This set of data, however, shows something different. It suggests that with physics papers there are less prolific authors among the data that we were able to sample, than astronomy datasets. \\
 
 The physics dataset, filtered on 10 papers, also is not a completely connected network. The image below shows the comparative sparsity of the dataset when compared to the above images of the astronomy data. The image shows that in physics, like astronomy, there are clearly defined communities. That is to say that we identified that some authors are still more likely to work together and to cite each other and that within physics there are still some prolific authors. \\
 
-We have also looked at H-Index as a success metric [6], both globally and measured in our own citation network. We compared this universal success metric to network factors, like node degree, K-Core, and centralities. We have included graphs with this paper to show the relevant trends that we have found. In summary, those trends are generally inconclusive. We were however able to find some interesting results when looking at collaboration within our network when compared to the H-Index of the network. These results will be discussed more after the charts. \\
+We have also looked at H-Index as a success metric [6], both globally and measured in our own citation network. We compared this universal success metric to network factors, like node degree, K-Core, and centralities. We have included graphs with this paper to show the relevant trends that we have found. In summary, those trends are generally inconclusive. We were however able to find some interesting results when looking at collaboration within our network when compared to the H-Index of the network. \\
 
-As mentioned before, our most significant result when looking at H-index relative to the paper networks, was H-index to degree of collaborations. This graph, shown below, has a high degree of certainty ($R^2 = 0.8491$)  \\
+\begin{figure}[h]
+   \includegraphics[width=8cm]{figure4.png}
+   \caption{Example of caption.}
+\end{figure}
+
+As mentioned before, our most significant result when looking at H-index relative to the paper networks, was H-index to degree of collaborations. The graph [Figure 5] has a high degree of certainty ($R^2 = 0.8491$)  \\
+
+\begin{figure}[h]
+   \includegraphics[width=8cm]{figure5.png}
+   \caption{Example of caption.}
+\end{figure}
 
 This graph shows H-index on the x-axis with degree on the y-axis. This is the most highly correlated graph we have found. What we can identify from this is that when an author collaborates heavily, and works with a diverse array of authors, they will be more likely to score high on the universal metric of h-index. \\
 
@@ -141,9 +175,19 @@ We believe this has some rational backings: first of all, if an author collabora
 
 The last network we generated drew from a different source. We used SCOPUS [4], which is one of the largest citation databases, in order to find the top 150 collaborating institutions, from 50 starting institutions. We came to this method of data collection, because we found that institutions typically have collaborations and citations with a very large number of other institutions. To try to grab all of the collaborations would be near impossible. We figured the top 150, which typically meant more than 500 collaborations had occurred, would narrow down our data set to a manageable point, without removing too much specificity. \\
 
-Still, when making this network (pictured below), we found that we had almost 700 very inter connected institution nodes. As with the Journal Citation network, this collaboration network had a low level of modularity, and not a large number of communities. In fact, establishing a real community structure was almost impossible. We made sure to add weight to all of the edges, and when visualizing, made the most heavily connected nodes larger. \\
+Still, when making this network [Figure 6], we found that we had almost 700 very inter connected institution nodes. As with the Journal Citation network, this collaboration network had a low level of modularity, and not a large number of communities. In fact, establishing a real community structure was almost impossible. We made sure to add weight to all of the edges, and when visualizing, made the most heavily connected nodes larger. \\
 
-Because of the method of data collection used, we also decided to filter out those nodes outside of the top 100 most connected nodes (pictured below), most connected nodes for better visualization.  We found this showed the communities in a slightly nicer way, but the communities were still not heavily modular and did not inform us of much.    \\
+\begin{figure}[h]
+   \includegraphics[width=8cm]{figure6.png}
+   \caption{Example of caption.}
+\end{figure}
+
+Because of the method of data collection used, we also decided to filter out those nodes outside of the top 100 most connected nodes [Figure 7], most connected nodes for better visualization.  We found this showed the communities in a slightly nicer way, but the communities were still not heavily modular and did not inform us of much.    \\
+
+\begin{figure}[h]
+   \includegraphics[width=8cm]{figure7.png}
+   \caption{Example of caption.}
+\end{figure}
 
 What we did find, upon manual analysis of the data was relatively interesting. We found that despite looking at the top 150 collaborated institutions for a multitude of institutions, some remained at the top of the list across the board. Of note, the Ohio State University and Massachusetts Institute of Technology both appeared at the top, or near the top of many of the institutions in our list. We also found that institutions heavily collaborated with institutions that were highly ranked in similar fields with them. For instance, Carnegie Mellon’s papers were 34.4\% computer science papers, and their second most collaborated institution was MIT. \\
 
@@ -208,9 +252,6 @@ M4: Further analysis of our data from M2 left us with some interesting questions
 
 Figure and table captions should be 10-point 
 Helvetica boldface type as in
-\begin{figure}[h]
-   \caption{Example of caption.}
-\end{figure}
 
 \noindent Long captions should be set as in 
 \begin{figure}[h] 
