@@ -223,12 +223,26 @@ We believe this has some rational backings: first of all, if an author collabora
 
 The last network we generated drew from a different source. We used Scopus [4], which is one of the largest citation databases, in order to find the top 150 collaborating institutions, from 50 starting institutions. We came to this method of data collection, because we found that institutions typically have collaborations and citations with a very large number of other institutions. To try to grab all of the collaborations would be near impossible. We figured the top 150, which typically meant more than 500 collaborations had occurred, would narrow down our data set to a manageable point, without removing too much specificity. \\
 
-Still, when making this network [Figure 6], we found that we had almost 700 very inter connected institution nodes. The basic network statistics are in [table 4]. As with the Journal Citation network, this collaboration network had a low level of modularity, and not a large number of communities. In fact, establishing a real community structure was almost impossible. We made sure to add weight to all of the edges, and when visualizing, made the most heavily connected nodes larger. \\
+Still, when making this network [Figure 6], we found that we had over 500 very inter connected institution nodes. The basic network statistics are in [table 4]. As with the Journal Citation network, this collaboration network had a low level of modularity, and not a large number of communities. In fact, establishing a real community structure was almost impossible. We made sure to add weight to all of the edges, and when visualizing, made the most heavily connected nodes larger. \\
 
 \begin{figure}[h]
    \includegraphics[width=8cm]{figure6.png}
    \caption{Example of caption.}
 \end{figure}
+
+\begin{table}[h]
+\centering
+\caption{My caption}
+\label{my-label}
+\begin{tabular}{|l|l|}
+\hline
+Institutions           & 552    \\ \hline
+Collaborations (total) & 571302 \\ \hline
+Collaborations (edges) & 6518   \\ \hline
+Communities            & 5      \\ \hline
+Modularity             & 0.223  \\ \hline
+\end{tabular}
+\end{table}
 
 Because of the method of data collection used, we also decided to filter out those nodes outside of the top 100 most connected nodes [Figure 7], most connected nodes for better visualization.  We found this showed the communities in a slightly nicer way, but the communities were still not heavily modular and did not inform us of much.    \\
 
@@ -247,7 +261,7 @@ When comparing the data across the communities, and to publicly available rankin
 
 During milestone 3, we also looked at our institution citation data in conjunction with the ARWU university world rankings [5]. Of note, ARWU rankings claim to include publication citation data within their rankings of universities. As such, we looked at a subset of universities from their rankings, and compared it to the larger nodes within our own network. Our results were somewhat compelling. \\
 
-When looking at ARWU rankings, we saw that high ranked institutions, namely Harvard, and MIT appeared to be collaborated with by most of our institutions. That is to say, that these very highly ranked institutions merited more collaboration across the board. We also found hits of a `rich get richer' property of these networks, so good schools tended to like to work with other good schools. In fact, a key metric is that none of the universities who appeared in our top-50 list fell out of the top 500 universities according to the ARWU.\\
+When looking at ARWU rankings, we saw that high ranked institutions, namely Harvard, and MIT appeared to be collaborated with by most of our institutions. That is to say, that these very highly ranked institutions merited more collaboration across the board. We also found a `rich get richer' property om these networks, so good schools tended to like to work with other good schools. In fact, a key metric is that none of the universities who appeared in our top-50 list fell out of the top 500 universities according to the ARWU.\\
 
 In a word, these are interesting findings because it confirms what we know about the schools; they are good schools and as such professors want to work with them more often. \\
 
@@ -257,8 +271,7 @@ From these results, we can find one simple truth; when compared against general 
 
 For the next milestone, we are looking at applying a page-rank like analysis to the rankings. We would like to see if position in the graph relative to high-ranking universities indicates anything about the ranking of your university. For instance, if one authors papers with primarily Harvard, does that mean that their university is also good? This will serve as a way we can predict what a university may be ranked in the future. We also want to look at other datasets in order to confirm our results like the Times international rankings. \\
 
-Our notions of success for institutions still need some polish, but we have found that highly ranked institutions, via world rankings (from Wikipedia) tend to cite other institutions that were also highly ranked. We also found that institutions with a large number of authors found themselves at the top of the collaboration lists (like the Ohio State University.) While not explored yet, we think that filtering on paper type and institutional rankings from third party sources may give us more incite in to what makes a successful institution successful.
-
+Generally what we have found after application of this algorithm is that the rich-get-richer property seemed to hold true. When looking at a node, the ranking data of its neighbor nodes seems to be directly coorelated to the node itself. The metric however, isn't accurate enough to give credible data. It just seems to be coorelated. This may point to the fact that we need to take into account all of the neigboring collaborations. It alternatively may hint that network position doesn't have a true baring on ranking.
 
 %-------------------------------------------------------------------------
 \Section{Conclusion}
@@ -274,9 +287,9 @@ Our next step in that regard should be to classify the universities more tightly
 
 %-------------------------------------------------------------------------
 \Section{Future Work}
-M3: Now that we have collected a good amount of working data, we must begin thinking more in depth how to compare success in academia. We should also look into cross correlating both H-index, and magazine rankings with our journal and institution networks. Lastly, we will work together on branching out the author subjects from just the field of astrophysics. \\
+Generally, future work in this area should be majorly focused on collecting more data. A good tool would be to figure out how to get the Scopus API to respond to the same sort of queries we leveraged against the SAO/NASA database. This would give one access to many fields of discipline, rather than the two that we were able to analyze in depth. Additionally, it may allow one to analyze far greater numbers of instituions. In general, more data here would be beneficial accross the board\\
 
-M4: Further analysis of our data from M2 left us with some interesting questions. We are now narrowing down the success metrics we might be using to view institutional and journal success. We need to apply these similar metrics to authors. We hope to be able to show by the deadline some unique metrics that will truly help us identify what success is in academia, and how to see when success will be achieved. For instance, the colocation of the universities with ‘good universities’ may be important, we also plan to do this analysis with  H-index of authors.
+Additionally, one might want to look at the data we have collected as it progresses over time. This may yield some interesting analysis that we did not have time for. For instance, one could look at an author's relative position through time within a network. That, compared to their H-Index may be able to yield some relatively interesting results that we did not account for.\\
 
 %-------------------------------------------------------------------------
 \Section{Citations}
