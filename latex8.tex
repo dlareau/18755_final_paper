@@ -100,10 +100,14 @@ Lastly, we attempted to generate our own success metrics. We tried to look at th
 \SubSection{Experimental Setup and Practical Results M1}
 Through our initial research and data gathering, we have found that most papers include a large number of citations, between 10 and 20 citations a paper. We gathered our initial set of papers from the SAO/NASA Astrophysics Data System [3]. We started by looking at 100  starting papers. This generated a network that was far too large to visualize, as it ballooned to many thousands of papers after looking at the citations. Because the number of citations was so large, we had to scale down our network in order to run some simulations on it on Gephi. What we found in our citation network was rather interesting. The network properties are in [Table 1].
 
+\begin{figure}[h]
+   \includegraphics[width=8cm]{figure1.png}
+   \caption{Paper Citation Network}
+\end{figure}
+
 \begin{table}[h]
 \centering
-\caption{My caption}
-\label{my-label}
+\caption{Paper Citation Data}
 \begin{tabular}{|l|l|}
 \hline
 Papers                 & 6808  \\ \hline
@@ -115,11 +119,6 @@ Clustering Coefficient & 0.047 \\ \hline
 \end{table}
 
 This dataset ended up not being used in our final results, but gave us an initial way to mine for data that we built off of for the remainder of the project.
-
-\begin{figure}[h]
-   \includegraphics[width=8cm]{figure1.png}
-   \caption{Example of caption.}
-\end{figure}
 
 %-------------------------------------------------------------------------
 \SubSection{Experimental Setup and Practical Results M2 + M3}
@@ -134,12 +133,12 @@ Firstly, we looked at an Astronomy author collaboration network [Figure 2]. The 
 
 \begin{figure}[h]
    \includegraphics[width=8cm]{figure2.png}
-   \caption{Example of caption.}
+   \caption{Author Collaboration Network}
 \end{figure}
 
 \begin{table}[h]
 \centering
-\caption{My caption}
+\caption{Author Collaboration Data}
 \label{my-label}
 \begin{tabular}{|l|l|}
 \hline
@@ -159,12 +158,12 @@ Next, we looked at a journal citation network [Figure 3]. The figure is colored 
 
 \begin{figure}[h]
    \includegraphics[width=8cm]{figure3.png}
-   \caption{Example of caption.}
+   \caption{Journal Citation Network}
 \end{figure}
 
 \begin{table}[h]
 \centering
-\caption{My caption}
+\caption{Journal Citation Data}
 \label{my-label}
 \begin{tabular}{|l|l|}
 \hline
@@ -182,7 +181,7 @@ In milestone 3, we refined these networks somewhat. We looked at physics collabo
 
 \begin{table}[h]
 \centering
-\caption{My caption}
+\caption{Astronomy vs. Physics Graph Sizes}
 \label{my-label}
     \begin{tabular}{ | l | l | l |}
     \hline
@@ -198,7 +197,7 @@ Using this data, we observed some interesting differences between the astronomy 
 
 This was interesting, as we had previously figured that the structure of the citation networks would not vary that greatly between disciplines. This set of data, however, shows something different. It suggests that with physics papers there are less prolific authors among the data that we were able to sample, than astronomy datasets. \\
 
-The physics dataset, filtered on 10 papers, also is not a completely connected network. [Figure 4] shows how sparse the physics dataset is when compared to the astronamy data [figure 2]. The image shows that in physics, like astronomy, there are clearly defined communities. That is to say that we identified that some authors are still more likely to work together and to cite each other and that within physics there are still some prolific authors. \\
+The physics dataset, filtered on 10 papers, also is not a completely connected network. [Figure 4] shows how sparse the physics dataset is when compared to the astronomy data [figure 2]. The image shows that in physics, like astronomy, there are clearly defined communities. That is to say that we identified that some authors are still more likely to work together and to cite each other and that within physics there are still some prolific authors. \\
 
 We have also looked at H-Index as a success metric [6], both globally and measured in our own citation network. We compared this universal success metric to network factors, like node degree, K-Core, and centralities. We have included graphs with this paper to show the relevant trends that we have found. \\
 
@@ -206,7 +205,7 @@ In summary, those trends are generally inconclusive. We were however able to fin
 
 \begin{figure}[h]
    \includegraphics[width=8cm]{figure4.png}
-   \caption{Example of caption.}
+   \caption{Physics Citation Network}
 \end{figure}
 
 As mentioned before, our most significant result when looking at H-index relative to the paper networks, was H-index to degree of collaborations. The graph [Figure 5] has a high
@@ -214,7 +213,7 @@ degree of certainty ($R^2 = 0.8491$)  \\
 
 \begin{figure}[h]
    \includegraphics[width=8cm]{figure5.png}
-   \caption{Example of caption.}
+   \caption{H-index vs. Degree Correlation}
 \end{figure}
 
 This graph shows H-index on the x-axis with degree on the y-axis. This is the most highly correlated graph we have found. What we can identify from this is that when an author collaborates heavily, and works with a diverse array of authors, they will be more likely to score high on the universal metric of H-index. \\
@@ -227,14 +226,14 @@ Still, when making this network [Figure 6], we found that we had almost 700 very
 
 \begin{figure}[h]
    \includegraphics[width=8cm]{figure6.png}
-   \caption{Example of caption.}
+   \caption{Instiution Collaboration Network}
 \end{figure}
 
 Because of the method of data collection used, we also decided to filter out those nodes outside of the top 100 most connected nodes [Figure 7], most connected nodes for better visualization.  We found this showed the communities in a slightly nicer way, but the communities were still not heavily modular and did not inform us of much.    \\
 
 \begin{figure}[h]
    \includegraphics[width=8cm]{figure7.png}
-   \caption{Example of caption.}
+   \caption{Top 100 Institution Collaborations}
 \end{figure}
 
 What we did find, upon manual analysis of the data was relatively interesting. We found that despite looking at the top 150 collaborated institutions for a multitude of institutions, some remained at the top of the list across the board. Of note, the Ohio State University and Massachusetts Institute of Technology both appeared at the top, or near the top of many of the institutions in our list. We also found that institutions heavily collaborated with institutions that were highly ranked in similar fields with them. For instance, Carnegie Mellon’s papers were 34.4\% computer science papers, and their second most collaborated institution was MIT. \\
@@ -294,20 +293,6 @@ M4: Further analysis of our data from M2 left us with some interesting questions
  [6] https://en.wikipedia.org/wiki/H-index\\
 \relax
  [7] https://scholar.google.com/citations?view\_op=top\_venues\&hl=en\\
-
-\SubSection{Footnotes}
-
-Please use footnotes sparingly%
-\footnote
-   {%
-     Or, better still, try to avoid footnotes altogether.  To help your
-     readers, avoid using footnotes altogether and include necessary
-     peripheral observations in the text (within parentheses, if you
-     prefer, as in this sentence).
-   }
-and place them at the bottom of the column on the page on which they are
-referenced. Use Times 8-point type, single-spaced.
-
 
 %-------------------------------------------------------------------------
 \nocite{ex1,ex2}
