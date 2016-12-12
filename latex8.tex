@@ -92,12 +92,24 @@ We then performed simple anaylysis on these networks. We looked at the degrees o
 
 After we had perfomred the rudimentary success analysis, we looked to get real-world metrics of success. For authors, we looked at their H-Index. We chose H-Index to look at, as it is currently one of the most widely used measures of success that looks both at an authors contributions and their impacts. Similarly from journals, we looked at the H-5 indexes of the journals as provided by google scholar. Lastly, for the institutions, we looked at both the ARWU world rankings, and the Times world rankings to identify the success of the institutions in teh real world. We compared these metrics to the network-statistics of the networks we had created. We tried to identify coorelating trends to ascertain if networks could tell us anything about academia. \\
 
-Lastly, we attempted to generate our own success metrics. We tried to look at the ranking of the nearby-nodes within our networks to ascertain any knowledge about the potential ranking of the focus node. Our results and full process for this analysis are disussed within. 
+Lastly, we attempted to generate our own success metrics. We tried to look at the ranking of the nearby-nodes within our networks to ascertain any knowledge about the potential ranking of the focus node. Our results and full process for this analysis are disussed within.
 %-------------------------------------------------------------------------
 \Section{Results}
 
 \SubSection{Experimental Setup and Practical Results M1}
-Through our initial research and data gathering, we have found that most papers include a large number of citations, between 10 and 20 citations a paper. We gathered our initial set of papers from the SAO/NASA Astrophysics Data System [3]. Because the number of citations was so large, we had to scale down our network in order to run some simulations on it on GePhi. What we found in our citation network was rather interesting. The network ended up having 6,808 nodes and 10,607 edges. This graph had an average degree of 3.116 and the distribution of the degrees led us to believe the graph was scale free. The graph also had an average clustering coefficient that was lower than we were expecting at 0.047. Lastly we found that upon using a random algorithm to induce communities, we had around 19-21 communities form. Essentially, there was a lot of cross connection between papers in our network. We also did see what we are calling “fringe” papers. Those papers are papers on the edge of the network that cite a large number of papers not found in the rest of the network. A picture of this network is included in [Figure 1].
+Through our initial research and data gathering, we have found that most papers include a large number of citations, between 10 and 20 citations a paper. We gathered our initial set of papers from the SAO/NASA Astrophysics Data System [3]. We started by looking at 100  starting papers. This generated a network that was far too large to visualize, as it balooned to many thousands of papers after looking at the citations. Because the number of citations was so large, we had to scale down our network in order to run some simulations on it on Gephi. What we found in our citation network was rather interesting. The network had the following properties:
+\begin{table}[]
+\centering
+\caption{My caption}
+\label{my-label}
+\begin{tabular}{ll}
+Papers                 & 6808  \\
+Citations              & 10607 \\
+Average Degree         & 3.116 \\
+Number Communities     & 19-21 \\
+Clustering Coefficient & 0.047
+\end{tabular}
+\end{table}
 
 \begin{figure}[h]
    \includegraphics[width=8cm]{figure1.png}
@@ -117,7 +129,7 @@ We managed to obtain more data out of the SAO/NASA Data system. Using the data t
 
 We chose not to include those papers, as the amount of authorships in those papers was skewing the network. For reference, both papers needed appendixes to note all of their authors, of which they had more than 2000. We do believe these two papers are still relevant to our research, as they do show that significant papers in academia can sometimes be the result of concerted, many yearlong efforts. Those papers, because they are so fundamental to their field, will usually be well connected, and heavily cited within academia. Additionally, these papers are unique to our dataset, as CERN, which funded them, is a multinational project, and the papers created on the Higgs-Boson from there must cite all researchers invited to spend time at CERN.\\
 
-Firstly, we looked at the author collaboration network [Figure 2]. Our first approach was to look at the communities within this network. We found a high level of modularity, 0.831, and a high number of communities, with the normal random community finding algorithm used in Gephi. 
+Firstly, we looked at the author collaboration network [Figure 2]. Our first approach was to look at the communities within this network. We found a high level of modularity, 0.831, and a high number of communities, with the normal random community finding algorithm used in Gephi.
 
 \begin{figure}[h]
    \includegraphics[width=8cm]{figure2.png}
