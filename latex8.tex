@@ -46,11 +46,9 @@ Citation networks in academia can provide insight into the success of papers, as
 
 
 %-------------------------------------------------------------------------
-\Section{Introduction}
-Our project will be looking at network trends in the world of academia. More specifically, we seek to analyze citations and references between different authors, disciplines, and fields of study. We hope to be able to identify what marks ‘success’ in different ways throughout academia as described by our questions below.
+\Section{Introduction and Motivation}
+Our project will be looking at network trends in the world of academia. More specifically, we seek to analyze citations and references between different authors, disciplines, and fields of study. We hope to be able to identify what marks ‘success’ in different ways throughout academia as described by our questions below.\\
 
-%-------------------------------------------------------------------------
-\Section{Motivation}
 Firstly, we specifically want to analyze what types of colleges and universities are most likely to have authors cross collaborate. We also hope to identify whether things like ranking, endowment, or school type (private vs. public) determine anything about whether academics are likely to work together in the future. We also want to see how ranking of university is related to institutions that they work with, and see if we can devise a way to rank those institutions based on their network position.\\
 
 Secondly, we want to see what journals are most likely to cite one another. We are specifically interested in whether the prestige of a specific journal affects the ratio of self-citing versus inter-journal citing. We also want to see what, if any implications, our network can show for conferences, and one-off publications.\\
@@ -64,8 +62,6 @@ Networks are fundamental to each of these goals. For each of the goals, in order
 
 %-------------------------------------------------------------------------
 \Section{Prior Work}
-We have viewed some authors previous work in the field of academic paper citation networks. \\
-
 One of our primary inspirations titled “A Century of Physics” [1], looks at 100 years of papers in the physics world through web of science and analyzes the long-term impact of different publications based on their reference data. It shows how publications and papers can have an impact over a range of time.\\
 
 Our work differs from that paper, as we are generally looking at small-scale in terms of time when compared to the 100 years of physics papers. We want to be able to identify what will cause an impact, not what has caused an impact in the past. Additionally, as the title implies, “A Century of Physics” focuses just on the physics discipline. It is our hope to find data that can apply to multiple disciplines, and cross discipline work. We have found  acquiring paper data for many disciplines is a complex process. In this paper we have been able to look at collaborations between institutions across all disciplines, but not at many disciplines at the paper-level. \\
@@ -95,8 +91,16 @@ After we had performed the rudimentary success analysis, we looked to get real-w
 Lastly, we attempted to generate our own success metrics. We tried to look at the ranking of the nearby-nodes within our networks to ascertain any knowledge about the potential ranking of the focus node. Our results and full process for this analysis are discussed within.
 %-------------------------------------------------------------------------
 \Section{Results}
+After initial data gathering, we decided to narrow down what we were looking for, and we split up our data collection so that we could accomplish all of our goals. What we looked to create were: 
+\begin{enumerate}
+\item A collaboration network between authors who have at least 10 publications.
+\item A citation network between journals based on the data collected regarding author citations.
+\item A collaboration network between institutions that have at least 50 papers each.
+\end{enumerate}
 
-\SubSection{Experimental Setup and Practical Results M1}
+
+
+\SubSection{Initial Experimental Setup and Results}
 Through our initial research and data gathering, we have found that most papers include a large number of citations, between 10 and 20 citations a paper. We gathered our initial set of papers from the SAO/NASA Astrophysics Data System [3]. We started by looking at 100  starting papers. This generated a network that was far too large to visualize, as it ballooned to many thousands of papers after looking at the citations. Because the number of citations was so large, we had to scale down our network in order to run some simulations on it on Gephi. What we found in our citation network was rather interesting. The network properties are in [Table 1].
 
 \begin{figure}[h]
@@ -120,12 +124,7 @@ Clustering Coefficient & 0.047 \\ \hline
 This dataset ended up not being used in our final results, but gave us an initial way to mine for data that we built off of for the remainder of the project.
 
 %-------------------------------------------------------------------------
-\SubSection{Experimental Setup and Practical Results M2 + M3}
-After getting that initial research from M1, we decided to narrow down what we were looking for, and we split up our data collection so that we could accomplish all of our goals. What we looked to create were: \\
-1. A collaboration network between authors who have at least 10 publications \\
-2. A citation network between journals based on the data collected regarding author citations.\\
-3. A collaboration network between institutions that have at least 50 papers each.\\
-
+\SubSection{Author Collaborations and Citations}
 We managed to obtain more data out of the SAO/NASA Data system. Using the data that we obtained, we created both a collaboration network between authors who have at least 10 publications, and a citation network between journals based on the data that lead to the author network. To create these networks we followed the model outlined in the approach.  \\
 
 Firstly, we looked at an Astronomy author collaboration network [Figure 2]. The colors in this network visualization represent the communities that the nodes belong to. Our first approach was to look at the communities within this network. We found a high value of modularity and a high number of communities, with the normal random community finding algorithm used in Gephi. The baseline network statistics are included in [Table 2] \\
@@ -153,6 +152,26 @@ We identified that the communities within this network seemed to be based around
 
 We found Gephi’s community analysis helpful in finding these specific authors. We have looked at this as one metric of success within our network; that is to say if an author collaborates on more than one ‘big’ papers, he must be a respected author. To put this in more detail, if we can find an author who works on a largely-collaborated paper, it may predict his success.\\
 
+We looked at H-Index as an author's success metric [6], both globally and measured in our own citation network. We compared this universal success metric to network factors, like node degree, K-Core, and centralities. We have included graphs with this paper to show the relevant trends that we have found. [Figure 5]\\
+
+In summary, those trends are generally inconclusive. We were however able to find some interesting results when looking at our author collaborations within our network when compared to the H-Index from our astronomy citation network. \\
+
+As mentioned before, our most significant result when looking at H-index relative to the paper networks, was H-index to degree of collaborations. The graph [Figure 5] has a high degree of certainty ($R^2 = 0.8491$)  \\
+
+\begin{figure}[h]
+   \includegraphics[width=8cm]{figure5.png}
+   \caption{H-index vs. Degree Correlation}
+\end{figure}
+
+Figure 5 shows H-index on the x-axis with degree on the y-axis. This is the most highly correlated graph we have found. What we can identify from this is that when an author collaborates heavily, and works with a diverse array of authors, they will be more likely to score high on the universal metric of H-index. \\ 
+
+We believe this finding has some rational backings: first of all, if an author collaborates more, they may have published more papers. Publishing papers has a factor in H-index as it measures productivity of paper writers. Also, if a professor’s work is collaborated on by other professors, those professors may self-cite their work in other papers. This will lead to the second requirement of H-index, citations, to be accomplished more easily. \\
+
+The other lesser correlation we obtained was H-index vs Betweenness centrality. Betweenness centrality is a measure of how many paths go through a node when considering the shortest paths from every node to every other node. While less correlated ($R^2 = 0.8491$ on a power curve), the metric is interesting because it is non-obvious why there exists a correlation between a citation based statistic and a statistic based around how central an author is when collaborating with other authors.
+
+%-------------------------------------------------------------------------
+\SubSection{Journal Collaborations}
+
 Next, we looked at a journal citation network [Figure 3]. The figure is colored by community of the journal. The general properties of this network can be found in [Table 3]. It was generated from the set of papers that made the author collaboration network. Unlike the author network, this network did not have a high modularity value. This means the communities discovered in this network are less important. In addition, it had a low level of communities, regardless of the resolution parameter. \\
 
 \begin{figure}[h]
@@ -176,6 +195,9 @@ Clustering Coefficient & .321  \\ \hline
 
 The interesting result we found was when we compared the network we generated to the H5-Index found on google scholar.[7] We found our most heavily cited journals, like the Astrophysics Journal, and the Monthly Notices of the Royal Astronomical Society also scored high on the H-index rating. We think our measure of success can be slightly different from H5-Index, where H-Index looks at citations over time; our rating looks at bursts of citations in one particular field. For this particular field, astrophysics, our metrics did not completely align with H-Index. In particular, The Astrophysical Journal scored higher on our metrics than Science or Nature, which both have much higher H-Indexes. We believe looking at burst citations may be valuable in establishing better success metrics for our papers.\\
 
+%-------------------------------------------------------------------------
+\SubSection{Alternative Citation Datasets}
+
 In milestone 3, we refined these networks somewhat. We looked at physics collaborations vs astronomy collaborations during milestone 3. What we found was somewhat interesting. We started with the same amount of papers, and roughly the same amount of author [table 4] \\
 
 \begin{table}[h]
@@ -198,26 +220,13 @@ This was interesting, as we had previously figured that the structure of the cit
 
 The physics dataset, filtered on 10 papers, also is not a completely connected network. [Figure 4] shows how sparse the physics dataset is when compared to the astronomy data [figure 2]. The image shows that in physics, like astronomy, there are clearly defined communities. That is to say that we identified that some authors are still more likely to work together and to cite each other and that within physics there are still some prolific authors. \\
 
-We have also looked at H-Index as a success metric [6], both globally and measured in our own citation network. We compared this universal success metric to network factors, like node degree, K-Core, and centralities. We have included graphs with this paper to show the relevant trends that we have found. \\
-
-In summary, those trends are generally inconclusive. We were however able to find some interesting results when looking at our author collaboration network within our network when compared to the H-Index from our astronomy citation network. \\
-
 \begin{figure}[h]
    \includegraphics[width=8cm]{figure4.png}
    \caption{Physics Citation Network}
 \end{figure}
 
-As mentioned before, our most significant result when looking at H-index relative to the paper networks, was H-index to degree of collaborations. The graph [Figure 5] has a high
-degree of certainty ($R^2 = 0.8491$)  \\
-
-\begin{figure}[h]
-   \includegraphics[width=8cm]{figure5.png}
-   \caption{H-index vs. Degree Correlation}
-\end{figure}
-
-This graph shows H-index on the x-axis with degree on the y-axis. This is the most highly correlated graph we have found. What we can identify from this is that when an author collaborates heavily, and works with a diverse array of authors, they will be more likely to score high on the universal metric of H-index. \\
-
-We believe this has some rational backings: first of all, if an author collaborates more, they may have published more papers. Publishing papers has a factor in H-index as it measures productivity of paper writers. Also, if a professor’s work is collaborated on by other professors, those professors may self-cite their work in other papers. This will lead to the second requirement of H-index, citations, to be accomplished more easily. \\
+%-------------------------------------------------------------------------
+\SubSection{Institution Collaborations}
 
 The last network we generated drew from a different source. We used Scopus [4], which is one of the largest citation databases, in order to find the top 150 collaborating institutions, from 50 starting institutions. We came to this method of data collection, because we found that institutions typically have collaborations and citations with a very large number of other institutions. To try to grab all of the collaborations would be near impossible. We figured the top 150, which typically meant more than 500 collaborations had occurred, would narrow down our data set to a manageable point, without removing too much specificity. \\
 
