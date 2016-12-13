@@ -152,18 +152,18 @@ We identified that the communities within this network seemed to be based around
 
 We found Gephi’s community analysis helpful in finding these specific authors. We have looked at this as one metric of success within our network; that is to say if an author collaborates on more than one ‘big’ papers, he must be a respected author. To put this in more detail, if we can find an author who works on a largely-collaborated paper, it may predict his success.\\
 
-We looked at H-Index as an author's success metric [6], both globally and measured in our own citation network. We compared this universal success metric to network factors, like node degree, K-Core, and centralities. We have included graphs with this paper to show the relevant trends that we have found. [Figure 5]\\
+We looked at H-Index as an author's success metric [6], both globally and measured in our own citation network. We compared this universal success metric to network factors, like node degree, K-Core, and centralities. We have included graphs with this paper to show the relevant trends that we have found. [Figure 3]\\
 
 In summary, those trends are generally inconclusive. We were however able to find some interesting results when looking at our author collaborations within our network when compared to the H-Index from our astronomy citation network. \\
 
-As mentioned before, our most significant result when looking at H-index relative to the paper networks, was H-index to degree of collaborations. The graph [Figure 5] has a high degree of certainty ($R^2 = 0.8491$)  \\
+As mentioned before, our most significant result when looking at H-index relative to the paper networks, was H-index to degree of collaborations. The graph [Figure 3] has a high degree of certainty ($R^2 = 0.8491$)  \\
 
 \begin{figure}[h]
    \includegraphics[width=8cm]{figure5.png}
    \caption{H-index vs. Degree Correlation}
 \end{figure}
 
-Figure 5 shows H-index on the x-axis with degree on the y-axis. This is the most highly correlated graph we have found. What we can identify from this is that when an author collaborates heavily, and works with a diverse array of authors, they will be more likely to score high on the universal metric of H-index. \\ 
+Figure 3 shows H-index on the x-axis with degree on the y-axis. This is the most highly correlated graph we have found. What we can identify from this is that when an author collaborates heavily, and works with a diverse array of authors, they will be more likely to score high on the universal metric of H-index. \\ 
 
 We believe this finding has some rational backings: first of all, if an author collaborates more, they may have published more papers. Publishing papers has a factor in H-index as it measures productivity of paper writers. Also, if a professor’s work is collaborated on by other professors, those professors may self-cite their work in other papers. This will lead to the second requirement of H-index, citations, to be accomplished more easily. \\
 
@@ -172,7 +172,7 @@ The other lesser correlation we obtained was H-index vs Betweenness centrality. 
 %-------------------------------------------------------------------------
 \SubSection{Journal Collaborations}
 
-Next, we looked at a journal citation network [Figure 3]. The figure is colored by community of the journal. The general properties of this network can be found in [Table 3]. It was generated from the set of papers that made the author collaboration network. Unlike the author network, this network did not have a high modularity value. This means the communities discovered in this network are less important. In addition, it had a low level of communities, regardless of the resolution parameter. \\
+Next, we looked at a journal citation network [Figure 4]. The figure is colored by community of the journal. The general properties of this network can be found in [Table 3]. It was generated from the set of papers that made the author collaboration network. Unlike the author network, this network did not have a high modularity value. This means the communities discovered in this network are less important. In addition, it had a low level of communities, regardless of the resolution parameter. \\
 
 \begin{figure}[h]
    \includegraphics[width=8cm]{figure3.png}
@@ -198,7 +198,7 @@ The interesting result we found was when we compared the network we generated to
 %-------------------------------------------------------------------------
 \SubSection{Alternative Citation Datasets}
 
-In milestone 3, we refined these networks somewhat. We looked at physics collaborations vs astronomy collaborations during milestone 3. What we found was somewhat interesting. We started with the same amount of papers, and roughly the same amount of author [table 4] \\
+In milestone 3, we refined these networks somewhat. We looked at physics collaborations vs astronomy collaborations during milestone 3. What we found was somewhat interesting. We started with the same amount of papers, and roughly the same amount of author [Table 4] \\
 
 \begin{table}[h]
 \centering
@@ -214,16 +214,16 @@ In milestone 3, we refined these networks somewhat. We looked at physics collabo
 \caption{Astronomy vs. Physics Graph Sizes}
 \end{table}
 
-Using this data, we observed some interesting differences between the astronomy and physics datasets. The first and most obvious difference is the number of authors with $>$10 publications. Significantly more authors in astronomy seemed to have worked on that many publications within this collaboration network. \\
-
-This was interesting, as we had previously figured that the structure of the citation networks would not vary that greatly between disciplines. This set of data, however, shows something different. It suggests that with physics papers there are less prolific authors among the data that we were able to sample, than astronomy datasets. \\
-
-The physics dataset, filtered on 10 papers, also is not a completely connected network. [Figure 4] shows how sparse the physics dataset is when compared to the astronomy data [figure 2]. The image shows that in physics, like astronomy, there are clearly defined communities. That is to say that we identified that some authors are still more likely to work together and to cite each other and that within physics there are still some prolific authors. \\
-
 \begin{figure}[h]
    \includegraphics[width=8cm]{figure4.png}
    \caption{Physics Citation Network}
 \end{figure}
+
+Using this data, we observed some interesting differences between the astronomy and physics datasets. The first and most obvious difference is the number of authors with $>$10 publications. Significantly more authors in astronomy seemed to have worked on that many publications within this collaboration network. \\
+
+This was interesting, as we had previously figured that the structure of the citation networks would not vary that greatly between disciplines. This set of data, however, shows something different. It suggests that with physics papers there are less prolific authors among the data that we were able to sample, than astronomy datasets. \\
+
+The physics dataset, filtered on 10 papers, also is not a completely connected network. [Figure 5] shows how sparse the physics dataset is when compared to the astronomy data [Figure 2]. The image shows that in physics, like astronomy, there are clearly defined communities. That is to say that we identified that some authors are still more likely to work together and to cite each other and that within physics there are still some prolific authors. \\
 
 %-------------------------------------------------------------------------
 \SubSection{Institution Collaborations}
